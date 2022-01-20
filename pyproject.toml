@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pdf_rendering_service"
+version = "1.0.0"
+description = """Accepts PDF files containing one or more pages. These pages are
+rendered to “normalized png” files, i.e. into a 1200x1600 (by default) pixels rectangle."""
+authors = ["Valerii Ulitin <ulitin.va.89@gmail.com>"]
+
+[tool.poetry.scripts]
+pdfservice = "pdf_rendering_service.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+dramatiq = {version = "^1.12.2", extras = ["rabbitmq", "watch"]}
+pony = "^0.7.14"
+psycopg2-binary = "^2.9.3"
+Flask = "^2.0.2"
+gunicorn = "^20.1.0"
+Werkzeug = "^2.0.2"
+pdfplumber = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+pylint = "^2.12.2"
+mypy = "^0.931"
+pytest-mock = "^3.6.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
